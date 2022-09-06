@@ -50,11 +50,12 @@ models:
       tags:
         - "hourly"
     marts:
-      schema: dbt_sample
-      materialized: view
-      tags:
-        - "hourly"
-        - "published"
+      core:
+        schema: dbt_sample
+        materialized: table
+        tags:
+          - "hourly"
+          - "published"
     utilities:
       schema: dbt_sample
       materialized: table
