@@ -1,0 +1,67 @@
+[tool.poetry]
+name = "dbt_learning"
+version = "0.1.0"
+description = "Learning dbt"
+authors = ["Tam Nguyen <npt.dc@outlook.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9, <3.11"
+types-requests = "^2.28.9"
+types-python-dateutil = "^2.8.19"
+dbt-bigquery = "^1.2.0"
+
+[tool.poetry.dev-dependencies]
+black = "^22.8.0"
+isort = "^5.10.1"
+mypy = "^0.971"
+flake8 = "^5.0.4"
+pep8-naming = "^0.13.2"
+pydocstyle = "^6.1.1"
+pytest = "^7.1.3"
+pytest-cov = "^3.0.0"
+pre-commit = "^2.20.0"
+shandy-sqlfmt= {extras = ["jinjafmt"], version = "^0.11.0"}
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+line_length = 88
+
+[tool.mypy]
+ignore_missing_imports = true
+
+[tool.pylint.LOGGING]
+disable = "logging-fstring-interpolation"
+
+[tool.pylint."MESSAGES CONTROL"]
+disable = ["import-error", "wrong-import-order", "ungrouped-imports", "pointless-statement"]
+max-line-length = 120
+
+[tool.pydocstyle]
+ignore = ["D104", "D107", "D212", "D203"]
+
+[tool.sqlfmt]
+line_length = 120
+exclude=["target/**/*", "dbt_packages/**/*", "notebooks/**/*"]
+
+[tool.sqlfluff]
+sql_file_exts = [".sql", ".sql.j2", ".dml", ".ddl"]
+
+[tool.sqlfluff.core]
+templater = "dbt"
+dialect = "bigquery"
+exclude_rules = "L036"
+
+[tool.sqlfluff.rules]
+max_line_length = 120
+capitalisation_policy = "lower"
+extended_capitalisation_policy = "lower"
