@@ -1,0 +1,13 @@
+black
+isort
+mypy
+flake8
+pep8-naming
+pylint
+pydocstyle
+types-requests
+types-python-dateutil
+pytest
+pytest-cov
+pre-commit
+dbt-bigquery
