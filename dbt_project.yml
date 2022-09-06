@@ -35,5 +35,4 @@ models:
   dbt_learning:
     # Applies to all files under models/example/
     example:
-      schema: dbt_sample
       materialized: view
