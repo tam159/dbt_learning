@@ -51,7 +51,7 @@ ignore = ["D104", "D107", "D212", "D203"]
 
 [tool.sqlfmt]
 line_length = 120
-exclude=["target/**/*", "dbt_packages/**/*", "notebooks/**/*"]
+exclude=["target/**/*", "dbt_packages/**/*", "notebooks/**/*", "macros/**/*"]
 
 [tool.sqlfluff]
 sql_file_exts = [".sql", ".sql.j2", ".dml", ".ddl"]
