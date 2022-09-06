@@ -42,12 +42,19 @@ models:
     staging:
       schema: dbt_sample
       materialized: view
+      tags:
+       - "hourly"
     intermediate:
       schema: dbt_sample
       materialized: view
+      tags:
+        - "hourly"
     marts:
       schema: dbt_sample
       materialized: view
+      tags:
+        - "hourly"
+        - "published"
     utilities:
       schema: dbt_sample
       materialized: table
