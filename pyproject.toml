@@ -54,14 +54,30 @@ line_length = 120
 exclude=["target/**/*", "dbt_packages/**/*", "notebooks/**/*", "macros/**/*"]
 
 [tool.sqlfluff]
-sql_file_exts = [".sql", ".sql.j2", ".dml", ".ddl"]
 
 [tool.sqlfluff.core]
-templater = "dbt"
-dialect = "bigquery"
-exclude_rules = "L036"
-
-[tool.sqlfluff.rules]
 max_line_length = 120
+dialect = "bigquery"
+templater = "dbt"
+sql_file_exts = ".sql,.sql.j2,.dml,.ddl"
+exclude_rules = "RF02"
+
+[tool.sqlfluff.indentation]
+indented_joins = false
+indented_using_on = true
+template_blocks_indent = false
+
+[tool.sqlfluff.templater]
+unwrap_wrapped_queries = true
+
+[tool.sqlfluff.templater.dbt]
+project_dir = "dbt_learning"
+#profiles_dir = "/Users/name/.dbt/"
+#profile = "dbt_learning"
+
+[tool.sqlfluff.templater.jinja]
+apply_dbt_builtins = true
+
+[tool.sqlfluff.rules.capitalisation.keywords]
 capitalisation_policy = "lower"
 extended_capitalisation_policy = "lower"
